@@ -1,0 +1,40 @@
+.App {
+    display: flex;
+    text-align: center;
+    height: 100vh;
+  }
+  
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+label{
+    width:120px;
+    display: inline-block;
+    text-align: left;
+}
+
+/*label {
+    padding-right: 20px;
+  }*/
+span,p{
+    padding-left: 10px;
+    color:red;
+}
+.female{
+    margin-left: 20px;
+}
+textarea{
+    width: 189px;
+}
+/*.form1{
+    background-color:rgb(252, 200, 252);
+    padding-left: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}*/
+  

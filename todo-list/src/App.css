@@ -1,0 +1,36 @@
+body{
+  background-color: #9266ff;
+}
+.App{
+  width: 400px;
+  margin: 40px auto;
+  /*min-height: 500px;
+  background-color: #3f3160;*/
+}
+h1{
+  
+  text-align: center;
+  padding-top: 15px;
+}
+#todo-list-form input{
+  border:0;
+  width:240px;
+  height:50px;
+  padding:0 20px;
+  margin: 20px;
+  font-size: 18px;
+  border-radius: 10px;
+}
+#todo-list-form input:focus, #todo-list-form button:focus{
+  outline: none;
+}
+#todo-list-form button{
+  height: 50px;
+  width: 80px;
+  border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+  background-color: rgb(220,156,24);
+  font-weight: bolder;
+  font-size: 15px;
+}
