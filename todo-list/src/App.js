@@ -19,6 +19,8 @@ class App extends React.Component {
     this.handelInput=this.handelInput.bind(this);
     this.addItem=this.addItem.bind(this);
     this.deleteItem=this.deleteItem.bind(this);
+    this.setUpdate=this.setUpdate.bind(this);
+
 
   }
 
@@ -55,6 +57,17 @@ class App extends React.Component {
     })
   }
   
+  setUpdate(text,key){
+    const items = this.state.items;
+    items.map(item=>{
+      if(item.key===key){
+        item.text=text;
+      }
+    })
+    this.setState({
+      items:items
+    })
+  }
 
    render(){
     return (
@@ -69,7 +82,8 @@ class App extends React.Component {
           </form>
         </header>
         <ListItems items = {this.state.items}
-        deleteItem={this.deleteItem}/>
+        deleteItem={this.deleteItem}
+        setUpdate={this.setUpdate}/>
       </div>
     );
   }
