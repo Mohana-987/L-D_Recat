@@ -3,6 +3,7 @@ import React from 'react'
 import { useState, useEffect} from 'react';
 import './App.css';
 
+
 function App() {
 
   const [form,setForm]=useState({
@@ -23,88 +24,51 @@ function App() {
       ...state,
       [name]: type==='checkbox' ? checked : value
     }));
-  }
+  };
   /*const showDataEvent = () =>{
     console.log("Form:",form);
   }*/
   const onSubmitEvent = (e) =>{
     //showDataEvent();
-    setFormErrors(validate(e,form));
+    e.preventDefault();
+    setFormErrors(validate(form));
     setIsSubmit(true);
-  }
+  };
   useEffect(()=>{
-    //console.log(formErrors)
     if(Object.keys(formErrors).length === 0 && isSubmit){
       console.log(form);
     }
-  },[formErrors]);
+  },[isSubmit, formErrors, form])
 
-  const validate = (e,values)=>{
+  const validate = (values)=>{
     const errors={}
     const emailregex= /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-    const nameregex = /^[A-Za-z][A-Za-z]{5,30}$/;
-
     if(!values.name){
       errors.name= "Name is required!";
-      e.preventDefault();
-    }else if(!nameregex.test(values.name)){
-      errors.name="Name should only contain Alphabets and length>4"
-      e.preventDefault();
-    }
-    else{
-      errors.name="";
     }
     if(!values.email){
       errors.email= "Email is required!";
-      e.preventDefault();
     }
     else if(!emailregex.test(values.email)){
       errors.email="This not a valid email!"
-      e.preventDefault();
-    }
-    else{
-      errors.email="";
     }
     if(!values.address){
       errors.address= "Address is required!";
-      e.preventDefault();
-    }
-    else{
-      errors.address="";
     }
     if(!values.course){
       errors.course= "Course is required!";
-      e.preventDefault();
-    }
-    else{
-      errors.course="";
     }
     if(!values.agree){
       errors.agree= "Agree is required!";
-      e.preventDefault();
-    }
-    else{
-      errors.agree="";
     }
     if(!values.gender){
       errors.gender= "Gender is required!";
-      e.preventDefault();
-    }
-    else{
-      errors.gender="";
     }
     if(!values.dob){
       errors.dob= "DOB is required!";
     }
-    else{
-      errors.dob="";
-    }
     if(!values.file){
       errors.file= "File is required!";
-      e.preventDefault();
-    }
-    else{
-      errors.file="";
     }
     return errors;
   }
@@ -165,7 +129,7 @@ function App() {
             <input type="checkbox" onChange={onChangeEvent} name="agree" value={form.agree}/>
           <span>{formErrors.agree}</span>
         </div>
-        <div class="text-center">
+        <div className="text-center">
           <button className='btn btn-success'>Submit</button>
         </div>
         </fieldset>
