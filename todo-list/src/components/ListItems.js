@@ -9,7 +9,10 @@ function ListItems(props){
         return(
             <div className='list' key={item.key}>
                 <p>
-                    {item.text}
+                    <input type="text" id={item.key} value={item.text}
+                    onChange={(e) =>{
+                        props.setUpdate(e.target.value, item.key)
+                    }}/>                   
                     <span>
                         <FontAwesomeIcon className='faicons' 
                         icon='trash'
